@@ -6,95 +6,139 @@
     android:orientation="vertical">
 
 
-    <TextView
-        style="@style/AppTheme.Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="hi" />
-
-    <!-- Food Type -->
+    <!-- drug -->
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/icon_category"
-            style="@style/AppTheme.FilterIcon"
+        <TextView
+            android:id="@+id/drug_entry_category"
+            style="@style/AppTheme.Subheader"
+            android:layout_marginLeft="16dp"
             android:layout_centerVertical="true"
             android:tint="@color/greySecondary"
-            app:srcCompat="@drawable/drug" />
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name " />
 
-        <Spinner
-            android:id="@+id/spinner_category"
-            style="@style/AppTheme.FilterSpinner"
+        <EditText
+            android:id="@+id/drug_entry_category_edit"
+            style="@style/AppTheme.FormLabel"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/icon_category"
+            android:inputType="text"
+            android:maxLines="1"
+            android:layout_toRightOf="@+id/drug_entry_category"
              />
 
     </RelativeLayout>
 
-    <!-- Location -->
+
+    <!-- start date -->
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/icon_city"
-            style="@style/AppTheme.FilterIcon"
+        <TextView
+            android:id="@+id/start_date_entry_category"
+            style="@style/AppTheme.Subheader"
+            android:layout_marginLeft="16dp"
             android:layout_centerVertical="true"
             android:tint="@color/greySecondary"
-            app:srcCompat="@drawable/drug" />
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start from " />
 
-        <Spinner
-            android:id="@+id/spinner_city"
-            style="@style/AppTheme.FilterSpinner"
+        <EditText
+            android:id="@+id/start_date_entry_category_edit"
+            style="@style/AppTheme.FormLabel"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/icon_city"
-             />
+            android:inputType="date"
+            android:layout_toRightOf="@+id/start_date_entry_category" />
 
     </RelativeLayout>
 
-    <!-- Price -->
+    <!-- drug -->
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/icon_price"
-            style="@style/AppTheme.FilterIcon"
+        <TextView
+            android:id="@+id/stop_date_entry_category"
+            style="@style/AppTheme.Subheader"
+            android:layout_marginLeft="16dp"
             android:layout_centerVertical="true"
             android:tint="@color/greySecondary"
-            app:srcCompat="@drawable/drug" />
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stop date " />
 
-        <Spinner
-            android:id="@+id/spinner_price"
-            style="@style/AppTheme.FilterSpinner"
+        <EditText
+            android:id="@+id/stop_date_entry_category_edit"
+            style="@style/AppTheme.FormLabel"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/icon_price"
-          />
+            android:inputType="date"
+            android:layout_toRightOf="@+id/stop_date_entry_category"
+            />
 
     </RelativeLayout>
 
-    <!-- Sort by -->
+    <!-- frequency of usage -->
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/icon_sort"
-            style="@style/AppTheme.FilterIcon"
+        <TextView
+            android:id="@+id/frequency_entry_category"
+            style="@style/AppTheme.Subheader"
+            android:layout_marginLeft="16dp"
             android:layout_centerVertical="true"
             android:tint="@color/greySecondary"
-            app:srcCompat="@drawable/drug" />
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Frequency of usage in a day " />
 
         <Spinner
-            android:id="@+id/spinner_sort"
+            android:id="@+id/frequency_entry_category_edit"
             style="@style/AppTheme.FilterSpinner"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/icon_sort"
-           />
+            android:layout_marginRight="16dp"
+            android:entries="@array/frequency_array"
+            android:layout_toRightOf="@+id/frequency_entry_category"
+            />
+
     </RelativeLayout>
+
+    <!-- comment -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/comment_entry_category"
+            style="@style/AppTheme.Subheader"
+            android:layout_marginLeft="16dp"
+            android:layout_centerVertical="true"
+            android:tint="@color/greySecondary"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ailment " />
+
+        <EditText
+            android:id="@+id/comment_entry_category_edit"
+            style="@style/AppTheme.FormLabel"
+            android:layout_centerVertical="true"
+            android:minLines="2"
+            android:layout_toRightOf="@+id/comment_entry_category"
+            />
+
+    </RelativeLayout>
+
+
 
     <!-- Cancel and apply buttons -->
     <LinearLayout
@@ -120,6 +164,7 @@
 
         <Button
             android:id="@+id/button_search"
+            android:layout_marginRight="16dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

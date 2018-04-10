@@ -39,35 +39,14 @@
             style="@style/AppTheme.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/drug_rating"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            tools:text="Some Restaurant" />
+            tools:text="Drug entry" />
 
-        <me.zhanghai.android.materialratingbar.MaterialRatingBar
-            android:id="@+id/drug_rating"
-            style="@style/Widget.MaterialRatingBar.RatingBar.Indicator"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_above="@+id/drug_category"
-            android:layout_alignLeft="@+id/drug_name"
-            app:mrb_progressTint="@android:color/white"
-            app:mrb_secondaryProgressTint="@android:color/white" />
 
-        <TextView
-            android:id="@+id/drug_num_ratings"
-            style="@style/AppTheme.Body1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/drug_rating"
-            android:layout_alignTop="@+id/drug_rating"
-            android:layout_marginLeft="4dp"
-            android:layout_toRightOf="@+id/drug_rating"
-            android:gravity="center"
-            android:textColor="@android:color/white"
-            tools:text="(10)" />
+
 
         <TextView
             android:id="@+id/drug_category"
@@ -79,7 +58,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:textColor="@android:color/white"
-            tools:text="Italian" />
+            tools:text="Lagos" />
 
         <TextView
             android:id="@+id/drug_city_divider"
@@ -98,32 +77,13 @@
             android:layout_below="@+id/drug_category"
             android:layout_toRightOf="@+id/drug_city_divider"
             android:textColor="@android:color/white"
-            tools:text="San Francisco" />
+            tools:text="Nigeria" />
 
-        <TextView
-            android:id="@+id/drug_price"
-            style="@style/AppTheme.Body1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/drug_name"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            tools:text="$$$" />
+
 
     </RelativeLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_show_rating_dialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="28dp"
-        android:layout_marginRight="16dp"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+
 
     <!-- Ratings -->
     <include
@@ -136,7 +96,7 @@
         android:paddingBottom="16dp"
         android:paddingTop="28dp"
         android:visibility="visible"
-        layout="@layout/template"/>
+        layout="@layout/edit_template"/>
 
 
 

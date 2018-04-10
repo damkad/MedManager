@@ -4,5 +4,12 @@
 
     <string name="message_no_reviews">Be the first to leave a review!</string>
     <string name="divider_bullet">•</string>
+<string-array name="frequency_array">
+    <item>"1"</item>
+    <item>"2"</item>
+    <item>"3"</item>
+    <item>"4"</item>
 
+
+</string-array>
 </resources>
