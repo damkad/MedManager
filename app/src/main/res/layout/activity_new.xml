@@ -126,7 +126,7 @@
         app:srcCompat="@android:drawable/ic_menu_add" />
 
     <!-- Ratings -->
-    <android.support.v7.widget.RecyclerView
+    <include
         android:id="@+id/recycler_ratings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -136,8 +136,7 @@
         android:paddingBottom="16dp"
         android:paddingTop="28dp"
         android:visibility="visible"
-        tools:listitem="@layout/template"
-        />
+        layout="@layout/template"/>
 
 
 
