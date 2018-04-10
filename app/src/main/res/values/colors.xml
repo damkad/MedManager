@@ -7,4 +7,7 @@
     <color name="greySecondary">#968389</color>
 
     <color name="greyDisabled">#968389</color>
+
+    <color name="greyPrimary">#DE000000</color>
+
 </resources>

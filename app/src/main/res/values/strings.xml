@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MedManager</string>
     <string name="action_settings">Settings</string>
+
+    <string name="message_no_reviews">Be the first to leave a review!</string>
+    <string name="divider_bullet">•</string>
+
 </resources>
