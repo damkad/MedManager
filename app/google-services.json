@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1091731054551",
+    "firebase_url": "https://medmanager-979ee.firebaseio.com",
+    "project_id": "medmanager-979ee",
+    "storage_bucket": "medmanager-979ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091731054551:android:75dc8bac1c39e54d",
+        "android_client_info": {
+          "package_name": "com.example.kadiripc.medmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091731054551-4984etdla11pli7n19ujca146l8buiaa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kadiripc.medmanager",
+            "certificate_hash": "093282639ab79ba39553985754bcaebf36adf2eb"
+          }
+        },
+        {
+          "client_id": "1091731054551-bvi0i16qhqm8caij8usq5ct3b1to015v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFJ7U_m07iPFxBl4wzYA4btYkUafAAz-E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091731054551-bvi0i16qhqm8caij8usq5ct3b1to015v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
