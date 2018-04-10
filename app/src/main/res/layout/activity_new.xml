@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kadiripc.medmanager.NewActivity">
+    <RelativeLayout
+        android:id="@+id/drugs_top_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/drug_top_card"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:alpha="1.0"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/drug" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/gradient_up" />
+
+        <!-- Back button -->
+        <ImageView
+            android:id="@+id/drugs_button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:layout_alignLeft="@+id/drug_name"
+            android:layout_marginTop="16dp"
+            app:srcCompat="@drawable/ic_close_white_24px" />
+
+        <TextView
+            android:id="@+id/drug_name"
+            style="@style/AppTheme.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/drug_rating"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            tools:text="Some Restaurant" />
+
+        <me.zhanghai.android.materialratingbar.MaterialRatingBar
+            android:id="@+id/drug_rating"
+            style="@style/Widget.MaterialRatingBar.RatingBar.Indicator"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_above="@+id/drug_category"
+            android:layout_alignLeft="@+id/drug_name"
+            app:mrb_progressTint="@android:color/white"
+            app:mrb_secondaryProgressTint="@android:color/white" />
+
+        <TextView
+            android:id="@+id/drug_num_ratings"
+            style="@style/AppTheme.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/drug_rating"
+            android:layout_alignTop="@+id/drug_rating"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@+id/drug_rating"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            tools:text="(10)" />
+
+        <TextView
+            android:id="@+id/drug_category"
+            style="@style/AppTheme.Subheader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/drug_top_card"
+            android:layout_alignLeft="@+id/drug_name"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/white"
+            tools:text="Italian" />
+
+        <TextView
+            android:id="@+id/drug_city_divider"
+            style="@style/AppTheme.TextDivider"
+            android:layout_alignTop="@+id/drug_category"
+            android:layout_toRightOf="@+id/drug_category"
+            android:text="@string/divider_bullet"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/drug_city"
+            style="@style/AppTheme.Subheader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/drug_category"
+            android:layout_below="@+id/drug_category"
+            android:layout_toRightOf="@+id/drug_city_divider"
+            android:textColor="@android:color/white"
+            tools:text="San Francisco" />
+
+        <TextView
+            android:id="@+id/drug_price"
+            style="@style/AppTheme.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/drug_name"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            tools:text="$$$" />
+
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_show_rating_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="28dp"
+        android:layout_marginRight="16dp"
+        app:srcCompat="@android:drawable/ic_menu_add" />
+
+    <!-- Ratings -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_ratings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/drugs_top_card"
+        android:background="@android:color/transparent"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        android:paddingTop="28dp"
+        android:visibility="visible"
+        tools:listitem="@layout/template"
+        />
+
+
+
+</RelativeLayout>
