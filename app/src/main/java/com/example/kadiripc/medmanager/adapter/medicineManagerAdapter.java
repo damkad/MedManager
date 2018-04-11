@@ -26,7 +26,6 @@ import butterknife.ButterKnife;
 
 public class medicineManagerAdapter extends FirestoreAdapter<medicineManagerAdapter.MedicineHolder> {
 
-    List<medicine> list;
     Context context;
     Query query;
 
@@ -54,10 +53,7 @@ public class medicineManagerAdapter extends FirestoreAdapter<medicineManagerAdap
 
     }
 
-    @Override
-    public int getItemCount() {
-        return list.size();
-    }
+
 
 
 

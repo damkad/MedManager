@@ -11,9 +11,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 
 import com.example.kadiripc.medmanager.adapter.medicineManagerAdapter;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 import butterknife.BindView;
@@ -23,21 +25,49 @@ public class MainActivity extends AppCompatActivity implements medicineManagerAd
     @BindView(R.id.recycler)
     RecyclerView recyclerView;
     Query mquery;
-
+    FirebaseFirestore db;
+    private static final int LIMIT = 100;
     public static final String KEY_DRUG_ID = "key_drug_id";
     medicineManagerAdapter medAdapter;
-
+    @BindView(R.id.view_empty)
+    ViewGroup mEmptyView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-         medAdapter = new medicineManagerAdapter(this);
+
+
+        db = FirebaseFirestore.getInstance();
+
+        // Get ${LIMIT} restaurants
+        mquery = db.collection("drugsData")
+                .orderBy("drug_name", Query.Direction.DESCENDING)
+                .limit(LIMIT);
+        medAdapter = new medicineManagerAdapter(mquery, this) {
+            @Override
+            protected void onDataChanged() {
+                // Show/hide content if the query returns empty.
+                if (getItemCount() == 0) {
+                    recyclerView.setVisibility(View.GONE);
+                    mEmptyView.setVisibility(View.VISIBLE);
+                } else {
+                    recyclerView.setVisibility(View.VISIBLE);
+                    mEmptyView.setVisibility(View.GONE);
+                }
+            }
+        };
         recyclerView.setAdapter(medAdapter);
 
         LinearLayoutManager lM = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(lM);
+
+
+
+
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -45,7 +75,8 @@ public class MainActivity extends AppCompatActivity implements medicineManagerAd
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(MainActivity.this, NewActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -81,5 +112,31 @@ public class MainActivity extends AppCompatActivity implements medicineManagerAd
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
     }
 
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // Start sign in if necessary
+       // if (shouldStartSignIn()) {
+           // startSignIn();
+           // return;
+       // }
+
+
+
+        // Start listening for Firestore updates
+        if (medAdapter != null) {
+            medAdapter.startListening();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (medAdapter != null) {
+            medAdapter.stopListening();
+        }
+    }
 
 }
