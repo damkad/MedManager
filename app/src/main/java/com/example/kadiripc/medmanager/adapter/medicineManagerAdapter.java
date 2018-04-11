@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.example.kadiripc.medmanager.R;
 import com.example.kadiripc.medmanager.model.medicine;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,33 +24,33 @@ import butterknife.ButterKnife;
  * Created by kADIRI PC on 4/9/2018.
  */
 
-public class medicineManagerAdapter extends RecyclerView.Adapter<medicineManagerAdapter.MedicineHolder> {
+public class medicineManagerAdapter extends FirestoreAdapter<medicineManagerAdapter.MedicineHolder> {
 
     List<medicine> list;
     Context context;
+    Query query;
 
-    public medicineManagerAdapter(Context context) {
-        this.context = context;
-        list = new ArrayList<medicine>();
-        list.add(new medicine("d", null,
-                "20-April-18", "28-April-18", "Malaria imfection...from female anophilis mosquito"
-                , null));
+    OnDrugSelectedListener mdrugsListener;
+    public interface OnDrugSelectedListener{
+        void OnDrugSelected(DocumentSnapshot documentSnapshot);
+    }
+
+    public medicineManagerAdapter(Query query, OnDrugSelectedListener drugsListener) {
+        super(query);
+        mdrugsListener = drugsListener;
 
     }
 
 
     @NonNull
     @Override
-    public MedicineHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MedicineHolder onCreateViewHolder (@NonNull ViewGroup parent, int viewType)  {
         return new MedicineHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.template, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull MedicineHolder holder, int position) {
-        holder.medicine_name.setText(list.get(position).getDrug_name());
-        holder.from_date.setText(list.get(position).getFrom_date());
-        holder.to_date.setText(list.get(position).getTo_date());
-        holder.ailment.setText(list.get(position).getPresciption());
+        holder.onBind(getSnapshot(position), mdrugsListener);
 
     }
 
@@ -83,13 +85,26 @@ public class medicineManagerAdapter extends RecyclerView.Adapter<medicineManager
             ButterKnife.bind(this, itemView);
         }
 
-        public void onBind(int position) {
+        public void onBind(final DocumentSnapshot snapshot, final OnDrugSelectedListener listener) {
             //medicine med = new medicine();
             //int adapterPosition = getAdapterPosition();
             //medicine_name.setText(med.getDrug_name());
+            medicine med = snapshot.toObject(medicine.class);
+
+            ailment.setText(med.getDrug_name());
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.OnDrugSelected(snapshot);
+                }
+            });
+
+
+        }
 
 
         }
     }
 
-}
+

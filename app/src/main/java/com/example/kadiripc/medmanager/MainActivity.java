@@ -13,13 +13,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.kadiripc.medmanager.adapter.medicineManagerAdapter;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.Query;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements medicineManagerAdapter.OnDrugSelectedListener {
     @BindView(R.id.recycler)
     RecyclerView recyclerView;
+    Query mquery;
+
+    public static final String KEY_DRUG_ID = "key_drug_id";
+    medicineManagerAdapter medAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        medicineManagerAdapter medAdapter = new medicineManagerAdapter(this);
+         medAdapter = new medicineManagerAdapter(this);
         recyclerView.setAdapter(medAdapter);
 
         LinearLayoutManager lM = new LinearLayoutManager(this);
@@ -39,8 +45,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, NewActivity.class);
-                startActivity(intent);
+
             }
         });
     }
@@ -66,4 +71,15 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void OnDrugSelected(DocumentSnapshot documentSnapshot) {
+        Intent intent = new Intent(MainActivity.this, NewActivity.class);
+        intent.putExtra(MainActivity.KEY_DRUG_ID, documentSnapshot.getId());
+        startActivity(intent);
+
+        overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
+    }
+
+
 }
