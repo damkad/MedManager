@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/profile_headers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/drug"
+            android:id="@+id/profile_images"
+            android:layout_margin="32dp"/>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_16sdp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/edit_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textColor="@color/colorWhite"
+            android:text="Edit Profile"
+            android:background="@color/colorPrimaryDark"
+            android:padding="@dimen/_12sdp"/>
+
+        <TextView
+            android:id="@+id/profile_names"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:padding="@dimen/_12sdp"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/colorBlack"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/profile_countrys"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:padding="@dimen/_12sdp"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/colorBlack"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/profile_phones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:padding="@dimen/_12sdp"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/colorBlack"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/profile_hobbys"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edit_profile_hobby"
+            android:maxLines="1"
+            android:padding="@dimen/_12sdp"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/colorBlack"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/profile_births"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:padding="@dimen/_12sdp"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:singleLine="true" />
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
