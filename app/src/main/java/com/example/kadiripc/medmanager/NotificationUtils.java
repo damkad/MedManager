@@ -34,7 +34,7 @@ public class NotificationUtils {
 
         NotificationCompat.Builder notificationbuilder = new NotificationCompat.Builder(context, CHANNELNAME);
         notificationbuilder.setContentTitle("Medicine Reminder")
-                .setContentText("A reminder to use your drugs").setSmallIcon(R.drawable.mrb_star_border_icon_black_36dp).setContentIntent(contentIntent(context)).setAutoCancel(true);
+                .setContentText("A reminder to use your drugs").setSmallIcon(R.drawable.ic_launcher_background).setContentIntent(contentIntent(context)).setAutoCancel(true);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             notificationbuilder.setPriority(NotificationCompat.PRIORITY_HIGH);
