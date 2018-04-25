@@ -11,39 +11,36 @@
         android:layout_height="wrap_content"
         android:elevation="4dp">
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolsbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/AppTheme"
+            app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
+            app:title="@string/app_edit"
+            app:titleMarginStart="24dp"
+            app:titleTextColor="@android:color/white" />
+
+
+
+        <View
+            android:layout_below="@+id/toolsbar"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/gradient_up" />
+
         <ImageView
             android:id="@+id/drug_top_card"
+            android:layout_below="@+id/toolsbar"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:alpha="1.0"
+            android:layout_height="150dp"
             android:scaleType="centerCrop"
             tools:src="@drawable/drug" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/gradient_up" />
 
-        <!-- Back button -->
-        <ImageView
-            android:id="@+id/drugs_button_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:layout_alignLeft="@+id/drug_name"
-            android:layout_marginTop="16dp"
-            app:srcCompat="@drawable/ic_close_white_24px" />
 
-        <TextView
-            android:id="@+id/drug_name"
-            style="@style/AppTheme.Title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            tools:text="Drug entry" />
+
 
 
 
@@ -58,34 +55,13 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:textColor="@android:color/white"
-            tools:text="Lagos" />
-
-        <TextView
-            android:id="@+id/drug_city_divider"
-            style="@style/AppTheme.TextDivider"
-            android:layout_alignTop="@+id/drug_category"
-            android:layout_toRightOf="@+id/drug_category"
-            android:text="@string/divider_bullet"
-            android:textColor="@android:color/white" />
-
-        <TextView
-            android:id="@+id/drug_city"
-            style="@style/AppTheme.Subheader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/drug_category"
-            android:layout_below="@+id/drug_category"
-            android:layout_toRightOf="@+id/drug_city_divider"
-            android:textColor="@android:color/white"
-            tools:text="Nigeria" />
-
-
+            tools:text="Use your drugs" />
 
     </RelativeLayout>
 
 
 
-    <!-- Ratings -->
+    <!-- input text -->
     <include
         android:id="@+id/recycler_ratings"
         android:layout_width="match_parent"

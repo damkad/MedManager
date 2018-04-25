@@ -132,7 +132,8 @@
             android:id="@+id/comment_entry_category_edit"
             style="@style/AppTheme.FormLabel"
             android:layout_centerVertical="true"
-            android:minLines="2"
+            android:minLines="1"
+            android:singleLine="true"
             android:layout_toRightOf="@+id/comment_entry_category"
             />
 

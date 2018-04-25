@@ -1,6 +1,12 @@
 package com.example.kadiripc.medmanager.model;
 
-import android.graphics.Bitmap;
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.Exclude;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 /**
  * Created by kADIRI PC on 4/9/2018.
@@ -8,17 +14,22 @@ import android.graphics.Bitmap;
 
 public class medicine {
 
-    String drug_name, time, from_date, to_date, presciption, photo;
+    String drug_name, from_date, to_date, presciption, photo;
+    int time;
 
-    public medicine(){}
+    long timestamp;
 
-    public medicine(String drug_name, String time, String from_date, String to_date, String presciption, String photo) {
+    public medicine() {
+    }
+
+    public medicine(String drug_name, int time, String from_date, String to_date, String presciption, String photo, long timestamp) {
         this.drug_name = drug_name;
         this.time = time;
         this.from_date = from_date;
         this.to_date = to_date;
         this.presciption = presciption;
         this.photo = photo;
+        this.timestamp = timestamp;
     }
 
     public String getDrug_name() {
@@ -29,11 +40,11 @@ public class medicine {
         this.drug_name = drug_name;
     }
 
-    public String getTime() {
+    public int getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(int time) {
         this.time = time;
     }
 
@@ -68,4 +79,15 @@ public class medicine {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+
+
 }
