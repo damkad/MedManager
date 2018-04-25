@@ -54,9 +54,8 @@ dependencies {
     annotationProcessor 'android.arch.lifecycle:compiler:1.1.1'
 
     // Third-party libraries
-    implementation 'me.zhanghai.android.materialratingbar:library:1.2.0'
     implementation 'com.github.bumptech.glide:glide:3.7.0'
-
+    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
 }
 
 apply plugin: 'com.google.gms.google-services'
